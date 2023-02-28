@@ -9,7 +9,8 @@ export const TodoList = () => {
   return (
     <div>
       <ul className="overflow-x-hidden h-40 pr-2">
-        {list.length !== 0 &&
+        {list &&
+          list.length !== 0 &&
           list.map((todo) => {
             return <TodoItem key={todo.id} todo={todo} />
           })}

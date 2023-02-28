@@ -4,7 +4,6 @@ const API_URL = process.env.API_URL ?? 'http://localhost:3001'
 
 const getTodos = async () => {
   const response = await axios.get(API_URL + '/todos')
-  console.log(response)
 
   return response.data
 }

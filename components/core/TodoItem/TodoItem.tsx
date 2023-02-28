@@ -2,7 +2,7 @@ import { useTodoStore } from '@/stores/todoStore'
 import { todos } from '@/utils/api'
 import { Todo } from '@/utils/types'
 import Image from 'next/image'
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 
 interface TodoProps {
   todo: Todo
@@ -12,9 +12,11 @@ export const TodoItem = ({ todo }: TodoProps) => {
   const removeTodo = useTodoStore((state) => state.removeTodo)
   const checkTodo = useTodoStore((state) => state.checkTodo)
 
-  const handleDelete = () => {
-    todos.deleteTodo(todo.id)
+  const handleDelete = async (event: MouseEvent) => {
+    event.stopPropagation()
+
     removeTodo(todo.id)
+    await todos.deleteTodo(todo.id)
   }
 
   const handleCheck = () => {
@@ -38,7 +40,7 @@ export const TodoItem = ({ todo }: TodoProps) => {
       <span className="w-5/6 text-lg truncate">{todo.name}</span>
       <span
         className={`w-1/6 flex justify-end ${showDelete ? 'hover:cursor-pointer' : 'opacity-0 '}`}
-        onClick={handleDelete}
+        onClick={(event) => handleDelete(event)}
       >
         <Image src="/delete-button.svg" alt="Delete todo" width={11} height={11} />
       </span>
