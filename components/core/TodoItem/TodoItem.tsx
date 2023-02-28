@@ -1,7 +1,7 @@
 import { useTodoStore } from '@/stores/todoStore'
 import { Todo } from '@/utils/types'
 import Image from 'next/image'
-import { MouseEvent, useState } from 'react'
+import { useState } from 'react'
 
 interface TodoProps {
   todo: Todo
