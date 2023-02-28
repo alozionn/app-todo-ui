@@ -46,7 +46,7 @@ export const useTodoStore = create<TodoState>()((set) => ({
   },
   fullList: () => {
     set((state) => ({
-      filteredList: state.list,
+      filteredList: [],
     }))
   },
   completedList: () => {
