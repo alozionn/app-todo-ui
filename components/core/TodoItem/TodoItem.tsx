@@ -1,4 +1,5 @@
 import { useTodoStore } from '@/stores/todoStore'
+import { todos } from '@/utils/api'
 import { Todo } from '@/utils/types'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -11,11 +12,21 @@ export const TodoItem = ({ todo }: TodoProps) => {
   const removeTodo = useTodoStore((state) => state.removeTodo)
   const checkTodo = useTodoStore((state) => state.checkTodo)
 
+  const handleDelete = () => {
+    todos.deleteTodo(todo.id)
+    removeTodo(todo.id)
+  }
+
+  const handleCheck = () => {
+    checkTodo(todo.id)
+    todos.checkTodo(todo.id, !todo.completed)
+  }
+
   return (
     <li
       onMouseEnter={() => setShowDelete(true)}
       onMouseLeave={() => setShowDelete(false)}
-      onClick={() => checkTodo(todo.id)}
+      onClick={handleCheck}
       className="flex items-center hover:cursor-pointer mb-3 justify-between"
     >
       <input
@@ -27,7 +38,7 @@ export const TodoItem = ({ todo }: TodoProps) => {
       <span className="w-5/6 text-lg truncate">{todo.name}</span>
       <span
         className={`w-1/6 flex justify-end ${showDelete ? 'hover:cursor-pointer' : 'opacity-0 '}`}
-        onClick={() => removeTodo(todo.id)}
+        onClick={handleDelete}
       >
         <Image src="/delete-button.svg" alt="Delete todo" width={11} height={11} />
       </span>

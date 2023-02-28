@@ -1,19 +1,16 @@
 import { useTodoStore } from '@/stores/todoStore'
 import { ChangeEvent, KeyboardEvent, useState } from 'react'
-
+import { todos } from '@/utils/api/'
 export const Input = () => {
   const [text, setText] = useState('')
   const addTodoStore = useTodoStore((state) => state.addTodo)
 
-  const addTodo = (event: KeyboardEvent) => {
+  const addTodo = async (event: KeyboardEvent) => {
     if (event.key === 'Enter') {
-      console.log(text)
+      const newTodo = await todos.addTodo({ name: text })
+
       setText('')
-      addTodoStore({
-        id: crypto.randomUUID(),
-        name: text,
-        completed: false,
-      })
+      addTodoStore(newTodo)
     }
   }
 

@@ -1,8 +1,20 @@
 import { Card } from '@/components/core/Card/Card'
 import { Header } from '@/components/core/Header/Header'
+import { useTodoStore } from '@/stores/todoStore'
 import Head from 'next/head'
+import { useEffect } from 'react'
 
-export const HomePage = () => {
+interface HomeProps {
+  data: any
+}
+
+export const HomePage = ({ data }: HomeProps) => {
+  const setTodos = useTodoStore((state) => state.setTodos)
+
+  useEffect(() => {
+    setTodos(data)
+  })
+
   return (
     <>
       <Head>

@@ -11,7 +11,7 @@ const filterStates = {
     name: 'Completed',
   },
   incomplete: {
-    id: 'incomplete',
+    id: 'Incomplete',
     name: 'incomplete',
   },
 }
