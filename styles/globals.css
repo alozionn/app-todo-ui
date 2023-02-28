@@ -11,3 +11,9 @@
     font-family: Mark-Pro-Bold;
     src: url(../public/Mark-Pro-Bold.ttf);
 }
+
+@layer components {
+    .input {
+        @apply w-full pb-3 mb-7 border-b-2 outline-none text-lg focus:border-dark-sky-blue
+    }
+}

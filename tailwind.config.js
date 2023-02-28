@@ -15,12 +15,16 @@ module.exports = {
         'dark-sky-blue': '#4a77e5',
         'dark-blue-gray': '#1f2a4b',
         'cool-grey': '#9ea3b2',
+        'cool-grey-two': '#a1a4ad',
       },
       width: {
         card: '440px',
       },
       height: {
         card: '437px',
+      },
+      maxHeight: {
+        card: '640px',
       },
       padding: {
         'card-x': '30px',
