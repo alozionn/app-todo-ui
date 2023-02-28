@@ -4,6 +4,7 @@ import { create } from 'zustand'
 interface TodoState {
   list: Todo[]
   filteredList: Todo[]
+  filter: boolean
   setTodos: (todos: Todo[]) => void
   addTodo: (todo: Todo) => void
   removeTodo: (id: number) => void
@@ -16,6 +17,7 @@ interface TodoState {
 export const useTodoStore = create<TodoState>()((set) => ({
   list: [],
   filteredList: [],
+  filter: false,
   setTodos: (todos: Todo[]) => {
     set((state) => ({
       list: todos,
@@ -47,16 +49,19 @@ export const useTodoStore = create<TodoState>()((set) => ({
   fullList: () => {
     set((state) => ({
       filteredList: [],
+      filter: false,
     }))
   },
   completedList: () => {
     set((state) => ({
       filteredList: state.list.filter((todo) => todo.completed === true),
+      filter: true,
     }))
   },
   uncompletedList: () => {
     set((state) => ({
       filteredList: state.list.filter((todo) => todo.completed === false),
+      filter: true,
     }))
   },
 }))
