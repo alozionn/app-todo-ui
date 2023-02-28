@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         markpro: ['Mark-Pro'],
+        'markpro-bold': ['Mark-Pro-Bold'],
       },
       colors: {
         'dark-sky-blue': '#4a77e5',
@@ -20,6 +21,13 @@ module.exports = {
       },
       height: {
         card: '437px',
+      },
+      padding: {
+        'card-x': '30px',
+        'card-y': '35px',
+      },
+      boxShadow: {
+        card: '0 2px 16px 0 rgba(0, 0, 0, 0.1)',
       },
     },
   },

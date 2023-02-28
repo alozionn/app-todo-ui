@@ -1,18 +1,15 @@
-import Image from 'next/image'
 import { Filters } from '../Filters/Filters'
 import { Input } from '../Input/Input'
+import { Logo } from '../Logo/Logo'
 import { TodoList } from '../TodoList/TodoList'
 
 export const Card = () => {
   return (
-    <div className="w-card h-card p-6 bg-white border border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700 ">
-      <Image src="/logo.svg" alt="Todo Logo" width={40} height={32} priority />
-      <h5 className="mb-6 text-2xl font-bold font-markpro">Todo List</h5>
-      {/* input */}
+    <div className="w-card h-card px-card-x py-card-y bg-white rounded-xl shadow-card flex flex-col">
+      <Logo />
+      <h5 className="mb-7 text-2xl font-markpro-bold">Todo List</h5>
       <Input />
-      {/* todos */}
       <TodoList />
-      {/* filters */}
       <Filters />
     </div>
   )
