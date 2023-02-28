@@ -19,8 +19,7 @@ export const Input = () => {
 
   const inputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement
-
-    setText(target.value)
+    if (target.value.length !== 0) setText(target.value)
   }
   return (
     <input
