@@ -8,7 +8,7 @@ export const HomePage = () => {
         <title>Todo App</title>
         <meta name="description" content="Todo App UI" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.svg" />
       </Head>
       <main className="">
         <Image src="/logo.svg" alt="Todo Logo" width={40} height={32} priority />
