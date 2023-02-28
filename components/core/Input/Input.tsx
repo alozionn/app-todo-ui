@@ -6,7 +6,7 @@ export const Input = () => {
   const addTodoStore = useTodoStore((state) => state.addTodo)
 
   const addTodo = async (event: KeyboardEvent) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && text.length !== 0) {
       const newTodo = await todos.addTodo({ name: text })
 
       setText('')
