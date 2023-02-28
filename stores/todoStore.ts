@@ -26,16 +26,27 @@ export const useTodoStore = create<TodoState>()((set) => ({
   addTodo: (todo: Todo) => {
     set((state) => ({
       list: [...state.list, todo],
+      filteredList: [...state.filteredList, todo],
     }))
   },
   removeTodo: (id: number) => {
     set((state) => ({
       list: state.list.filter((todo) => todo.id !== id),
+      filteredList: state.filteredList.filter((todo) => todo.id !== id),
     }))
   },
   checkTodo: (id: number) => {
     set((state) => ({
       list: state.list.map((todo) => {
+        if (todo.id === id)
+          return {
+            ...todo,
+            completed: !todo.completed,
+          }
+
+        return todo
+      }),
+      filteredList: state.filteredList.map((todo) => {
         if (todo.id === id)
           return {
             ...todo,

@@ -21,7 +21,7 @@ export const Input = () => {
   return (
     <input
       placeholder="Add a new todo"
-      className="w-full pb-3 mb-7 border-b-2 outline-none text-lg"
+      className="w-full pb-3 mb-7 border-b-2 outline-none text-lg focus:border-dark-sky-blue"
       value={text}
       onChange={inputChange}
       onKeyUp={addTodo}

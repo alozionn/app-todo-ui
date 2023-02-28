@@ -1,4 +1,5 @@
 import { useTodoStore } from '@/stores/todoStore'
+import { useEffect } from 'react'
 import { TodoItem } from '../TodoItem/TodoItem'
 
 export const TodoList = () => {
@@ -6,7 +7,8 @@ export const TodoList = () => {
   const filteredList = useTodoStore((state) => state.filteredList)
   const filter = useTodoStore((state) => state.filter)
 
-  const list = filter ? filteredList : todoList
+  let list = filter ? filteredList : todoList
+
   return (
     <div>
       <ul className="overflow-x-hidden h-40 pr-2">
