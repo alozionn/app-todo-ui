@@ -13,7 +13,7 @@ export const HomePage = ({ data }: HomeProps) => {
 
   useEffect(() => {
     setTodos(data)
-  })
+  }, [])
 
   return (
     <>
