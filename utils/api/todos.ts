@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_URL } from '.'
+import { API_URL } from '../constants'
 
 const getTodos = async () => {
   const response = await axios.get(API_URL + '/listTodos')
@@ -8,6 +8,8 @@ const getTodos = async () => {
 }
 
 const addTodo = async (data: { name: string }) => {
+  console.log(API_URL)
+
   const response = await axios.post(API_URL + '/createTodo', {
     ...data,
   })
