@@ -1,9 +1,10 @@
+import { user } from '@/utils/api'
 import Link from 'next/link'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 interface Inputs {
-  fullName: string
+  name: string
   email: string
   password: string
 }
@@ -14,9 +15,7 @@ export const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
-  console.log(errors)
-
+  const onSubmit: SubmitHandler<Inputs> = (data) => user.singup(data)
   return (
     <>
       <h2 className="mb-1 text-2xl font-markpro-bold">Welcome!</h2>
@@ -28,7 +27,7 @@ export const SignUp = () => {
           className="input"
           type="text"
           placeholder="Full Name"
-          {...register('fullName', { required: true, maxLength: 80 })}
+          {...register('name', { required: true, maxLength: 80 })}
         />
         <input
           className="input"

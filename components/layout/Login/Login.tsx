@@ -1,4 +1,6 @@
+import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
@@ -13,8 +15,10 @@ export const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
-  console.log(errors)
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    signIn('credentials', { email: data.email, password: data.password })
+  }
 
   return (
     <>
@@ -33,7 +37,7 @@ export const Login = () => {
           placeholder="Password"
           {...register('password', { required: true })}
         />
-        <Link href="/login" className="underline text-dark-blue-gray text-xs mb-7">
+        <Link href="/signup" className="underline text-dark-blue-gray text-xs mb-7">
           Don&apos;t have an account? Sign up.
         </Link>
 
