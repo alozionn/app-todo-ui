@@ -9,6 +9,11 @@
     "lint": "next lint",
     "changelog": "auto-changelog -p && git add CHANGELOG.md"
   },
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
+  },
   "dependencies": {
     "@tanstack/react-query": "^4.24.10",
     "@types/node": "18.14.2",
