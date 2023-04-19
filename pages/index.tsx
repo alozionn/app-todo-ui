@@ -1,5 +1,6 @@
 import { HomePage } from '@/components/page/HomePage/HomePage'
 import { todos } from '@/utils/api'
+import { ROUTES } from '@/utils/constants'
 import { QueryClient, useQuery, dehydrate } from '@tanstack/react-query'
 import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/react'
@@ -17,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (!session)
     return {
       redirect: {
-        destination: '/login',
+        destination: ROUTES.LOGIN,
         permanent: false,
       },
     }

@@ -1,4 +1,5 @@
 import { LoginPage } from '@/components/page/LoginPage/LoginPage'
+import { ROUTES } from '@/utils/constants'
 import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import { Session } from 'next-auth'
 import { getSession } from 'next-auth/react'
@@ -15,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<{ session: Session | null }>
   if (session)
     return {
       redirect: {
-        destination: '/',
+        destination: ROUTES.HOME,
         permanent: false,
       },
     }
