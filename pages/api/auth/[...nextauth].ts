@@ -1,10 +1,11 @@
 import { user as userAPI } from '@/utils/api'
+import { ROUTES } from '@/utils/constants'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export default NextAuth({
   pages: {
-    signIn: '/login',
+    signIn: ROUTES.LOGIN,
   },
   providers: [
     CredentialsProvider({
