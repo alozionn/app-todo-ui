@@ -3,7 +3,6 @@ import { Header } from '@/components/core/Header/Header'
 import { Todo } from '@/components/layout/Todo/Todo'
 import { useTodoStore } from '@/stores/todoStore'
 import Head from 'next/head'
-import { useEffect } from 'react'
 
 interface HomeProps {
   data: any
