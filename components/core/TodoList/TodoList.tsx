@@ -1,5 +1,4 @@
 import { useTodoStore } from '@/stores/todoStore'
-import { useEffect } from 'react'
 import { TodoItem } from '../TodoItem/TodoItem'
 
 export const TodoList = () => {

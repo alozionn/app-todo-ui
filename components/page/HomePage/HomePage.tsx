@@ -11,10 +11,7 @@ interface HomeProps {
 
 export const HomePage = ({ data }: HomeProps) => {
   const setTodos = useTodoStore((state) => state.setTodos)
-
-  useEffect(() => {
-    setTodos(data)
-  }, [])
+  setTodos(data)
 
   return (
     <>
