@@ -15,7 +15,7 @@ export const HomePage = ({ data }: HomeProps) => {
   return (
     <>
       <Head>
-        <title>Simpledo - Home</title>
+        <title>Simple Do - Home</title>
         <meta name="description" content="Simpledo UI" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
